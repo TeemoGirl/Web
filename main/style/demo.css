@@ -1,0 +1,33 @@
+.conDiv{
+	width:1200px;
+	margin:0 auto!important;
+	padding: 30px!important;
+	background-color:#fff;
+	min-height: 900px;
+}
+.pageTurn{
+	width: 100%;
+    height: 40px;
+    line-height: 40px;
+    border: 1px dashed #ccc;
+    padding: 0 30px;
+}
+.pageTurn .AboutIt{
+	margin:0 10px;
+}
+#downLoad{
+	padding: 20px 0;
+}
+#downLoad #downBtn{
+    float: right;
+    width: 120px;
+    height: 40px;
+    background-color: #666666;
+    color: #fff;
+    border: 2px solid #666666;
+    border-radius: 3px;
+}
+#downLoad #downBtn:hover{
+	background-color: #7b7979;
+	border:2px solid #7b7979;
+}

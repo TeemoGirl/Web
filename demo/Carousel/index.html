@@ -1,0 +1,128 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无缝轮播</title>
+<style>
+    *{padding:0;margin:0; list-style:none;}
+	.banner{margin:50px auto;border:5px solid #000;width:820px;height:461px;
+	overflow:hidden;position:relative;}
+	.banner .img{width:4100px;position:absolute;left:0px;top:0px;}
+	.banner .img li{float:left;}
+	
+	.banner .num{position:absolute;width:100%;bottom:10px;left:0;text-align:center;font-size:0px;}
+	.banner .num li{width:10px;height:10px;background:#888;border-radius:50%;display:inline-block;
+	margin:0 3px;cursor:pointer;}
+	.banner .num li.on{background:#F60;}
+	
+	.banner .btn{width:30px;height:50px;background:rgba(0,0,0,0.5);position:absolute;
+	top:50%;margin-top:-25px;cursor:pointer;text-align:center;
+	line-height:50px;color:#fff;font-size:40px;font-family:"宋体";display:none;}
+	.banner:hover .btn{display:block;}
+	.banner .btn_l{left:0;}
+	.banner .btn_r{right:0;}
+	.DemoIntro{
+		padding:20px 30px;
+		color:#666666;
+		font-size: 14px;
+		border: 1px dashed #ccc;
+	}
+	.IntroP{
+		font-weight: bold;
+		padding-bottom: 5px;
+	}
+</style>
+<script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
+<script type = "text/javascript">
+$(function(){
+	var i=0;
+	var clone=$(".banner .img li").first().clone();
+	$(".banner .img").append(clone);
+	var size=$(".banner .img li").size();
+	for(j=0;j<size-1;j++){
+		$(".banner .num").append("<li></li>");
+	}
+	$(".banner .num li").first().addClass("on");
+	
+	/**鼠标划入状态**/
+	$(".banner .num li").hover(function(){
+		var index=$(this).index();
+		i=index;
+		$(".banner .img").stop().animate({left:-index*820}, 500)
+		$(this).addClass("on").siblings().removeClass("on")
+		})
+	
+	
+	/**自动轮播**/
+	var t=setInterval(moveL,2000);
+		
+		
+	/**对banner定时器的操作**/
+	$(".banner").hover(function(){
+		clearInterval(t);
+    	},function(){
+			t=setInterval(moveL,2000);
+		})
+	
+	
+	/**向左的按钮移动**/
+	$(".banner .btn_l").click(function(){
+		moveL();
+		})
+		
+		
+		/**向右的按钮移动**/
+	$(".banner .btn_r").click(function(){
+		moveR();
+		})
+		
+		
+	function moveL(){
+			i++;
+		if (i == size){
+			$(".banner .img").css({left:0});
+			i = 1;
+		}
+		$(".banner .img").stop().animate({left:-i*820}, 500);
+		if(i==size-1){
+			$(".banner .num li").eq(0).addClass("on").siblings().removeClass("on");
+		}else{
+			$(".banner .num li").eq(i).addClass("on").siblings().removeClass("on");
+		}
+	}
+		
+	function moveR(){
+		i--;
+		if(i == -1){
+			$(".banner .img").css({left:-(size-1)*820})
+			i = size-2;
+		}
+		$(".banner .img").stop().animate({left:-i*820}, 500)
+		$(".banner .num li").eq(i).addClass("on").siblings().removeClass("on");
+	}	
+})
+</script>
+
+</head>
+
+<body>
+<div class = "banner">
+    <ul class = "img">
+        <li><a href = "#"><img src = "images/1.jpg"></a></li>
+        <li><a href = "#"><img src = "images/2.jpg"></a></li>
+        <li><a href = "#"><img src = "images/3.jpg"></a></li>
+        <li><a href = "#"><img src = "images/4.jpg"></a></li>
+    </ul>
+    <ul class = "num">
+    </ul>
+    <div class = "btn btn_l">&lt;</div>
+    <div class = "btn btn_r">&gt;</div>
+</div>
+<div class="DemoIntro">
+	<p class="IntroP">Demo简介：</p>
+	<p>该Demo功能的实现采用的技术有：HTML、CSS、JavaScript/JQuery</p>
+	<p>主要实现图片的无缝轮播效果</p>
+	<p>更多详情请点击右下角下载按钮，参考源码及功能说明文档</p>
+</div>
+</body>
+</html>

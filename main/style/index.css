@@ -1,0 +1,102 @@
+.conDiv{
+	width:1200px;
+	margin:0 auto!important;
+	padding: 30px!important;
+	background-color:#fff;
+	min-height: 900px;
+}
+.fatherUl{
+    margin: 0 auto;
+}
+.fatherUl li{
+	list-style:none;
+	padding: 10px 0;
+}
+.typeA{
+	cursor:pointer;
+	font-size: 16px;
+	-webkit-user-select:none;user-select:none;
+}
+.typeA:hover{
+	color:#398fc7;
+}
+.childUl{
+	display:inline-block;
+	margin-left: 30px;
+}
+.childUl li{
+	cursor:pointer;
+	display: inline-block;
+	width: 220px;
+	height:180px;
+	background-color: #666666;
+	position:relative;
+	color:#cccccc;
+	text-align: center;
+    margin: 10px 20px;
+	padding: 35px 0;
+}
+.childUl .hoverDiv{
+	width:180px;
+	height:120px;
+	border:2px solid #fff;
+	position: absolute;
+    top: 15%;
+    left: 10%;
+    padding: 20px 0;
+    display: none;
+    background-color:rgba(255,255,255,0.1);
+}
+.hoverDiv>span{
+	display: block;
+	margin:10px auto;
+}
+.iconImg{
+	width:15px;
+	height:15px;
+	margin-right: 5px;
+}
+/*搜索框样式*/
+.searchDiv{
+	float:right;
+}
+#input_search{
+    position: relative;
+    top: 0;
+    left: 0;
+    z-index: 5;
+    margin-bottom: 20px;
+    overflow: auto;
+}
+#input_title{
+    float: left;
+    width: 250px;
+    height: 36px;
+    padding: 0;
+    margin: 0;
+    margin-left: 2px;
+    outline: none;
+    padding-left: 20px;
+    z-index: 3;
+    color: #666666;
+    font-size: 16px;
+    opacity: 1;
+    border:1px solid #666666;
+    border-radius:5px;
+}
+#input_search>a {
+    float: left;
+    width: 45px;
+    height: 38px;
+    color: #ffffff;
+    z-index: 5;
+    cursor: pointer;
+    margin-left: 5px;
+    margin-top: -2px;
+    background: url(../img/search2.png) center no-repeat;
+    background-size: 100%;
+}
+.lanuch_img{
+	float:right;
+	cursor:pointer;
+}
